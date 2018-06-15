@@ -162,4 +162,7 @@
         <developerConnection>scm:git:git@github.com:manorrock/flounder.git</developerConnection>
         <url>https://github.com/manorrock/flounder</url>
     </scm>
+    <modules>
+        <module>flounder</module>
+    </modules>
 </project>
