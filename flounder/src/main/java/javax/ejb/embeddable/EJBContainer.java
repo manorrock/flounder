@@ -25,7 +25,11 @@
  */
 package javax.ejb.embeddable;
 
+import java.io.Closeable;
 import java.util.Map;
+import java.util.ServiceLoader;
+import javax.ejb.EJBException;
+import javax.ejb.spi.EJBContainerProvider;
 import javax.naming.Context;
 
 /**
@@ -33,7 +37,7 @@ import javax.naming.Context;
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public abstract class EJBContainer {
+public abstract class EJBContainer implements Closeable {
 
     /**
      * Stores the APP_NAME constant.
@@ -59,6 +63,7 @@ public abstract class EJBContainer {
     /**
      * Shutdown the EJB container.
      */
+    @Override
     public abstract void close();
 
     /**
@@ -67,7 +72,7 @@ public abstract class EJBContainer {
      * @return the EJB container.
      */
     public static EJBContainer createEJBContainer() {
-        throw new UnsupportedOperationException("Not supported yet");
+        return createEJBContainer(null);
     }
 
     /**
@@ -77,7 +82,19 @@ public abstract class EJBContainer {
      * @return the EJB container.
      */
     public static EJBContainer createEJBContainer(Map<?, ?> properties) {
-        throw new UnsupportedOperationException("Not supported yet");
+        EJBContainer result = null;
+        ServiceLoader<EJBContainerProvider> providers
+                = ServiceLoader.load(EJBContainerProvider.class);
+        for (EJBContainerProvider provider : providers) {
+            try {
+                result = provider.createEJBContainer(properties);
+                if (result != null) {
+                    break;
+                }
+            } catch (EJBException ee) {
+            }
+        }
+        return result;
     }
 
     /**
