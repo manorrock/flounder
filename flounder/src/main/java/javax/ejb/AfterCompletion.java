@@ -25,10 +25,17 @@
  */
 package javax.ejb;
 
+import static java.lang.annotation.ElementType.METHOD;
+import java.lang.annotation.Retention;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import java.lang.annotation.Target;
+
 /**
  * The AfterCompletion annotation.
- * 
+ *
  * @author Manfred Riem (mriem@manorrock.com)
  */
+@Retention(RUNTIME)
+@Target(METHOD)
 public @interface AfterCompletion {
 }
