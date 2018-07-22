@@ -25,24 +25,18 @@
  */
 package javax.ejb;
 
-import static java.lang.annotation.ElementType.TYPE;
-import java.lang.annotation.Retention;
-import static java.lang.annotation.RetentionPolicy.RUNTIME;
-import java.lang.annotation.Target;
-
 /**
- * The ConcurrencyManagement annotation.
+ * The ConcurrenceyManagementType enum.
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-@Retention(RUNTIME)
-@Target(value = {TYPE})
-public @interface ConcurrencyManagement {
-
+public enum ConcurrencyManagementType {
     /**
-     * Stores the type.
-     *
-     * @return the type.
+     * Concurrency is managed by the bean.
      */
-    ConcurrencyManagementType value() default ConcurrencyManagementType.CONTAINER;
+    BEAN,
+    /**
+     * Concurrency is managed by the container.
+     */
+    CONTAINER
 }
