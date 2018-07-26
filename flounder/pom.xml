@@ -91,6 +91,12 @@
     </build>
     <dependencies>
         <dependency>
+            <groupId>com.manorrock.herring</groupId>
+            <artifactId>herring</artifactId>
+            <version>1.0.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>

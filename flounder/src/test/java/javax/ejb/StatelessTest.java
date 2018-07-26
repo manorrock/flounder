@@ -23,64 +23,31 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package com.manorrock.flounder;
+package javax.ejb;
 
+import com.manorrock.flounder.DefaultEJBContainer;
 import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
- * The default EJB container.
- *
+ * The JUnit tests for the Stateless annotation.
+ * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class DefaultEJBContainer extends EJBContainer {
-
+public class StatelessTest {
+    
     /**
-     * Stores the context.
+     * Test @Stateless.
+     * 
+     * @throws Exception when a serious error occurs.
      */
-    private Context context;
-
-    /**
-     * Shutdown the EJB container.
-     */
-    @Override
-    public void close() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    /**
-     * Get the naming context.
-     *
-     * @return the naming context.
-     */
-    @Override
-    public Context getContext() {
-        if (context == null) {
-            try {
-                context = new InitialContext();
-            } catch (NamingException ne) {
-                throw new RuntimeException(ne);
-            }
-        }
-        return context;
-    }
-
-    /**
-     * Bind EJB.
-     *
-     * @param ejb the EJB to bind.
-     * @param name the name to bind it to.
-     * @return true if bound, false otherwise.
-     */
-    public boolean bind(Object ejb, String name) {
-        boolean result = true;
-        try {
-            getContext().bind(name, ejb);
-        } catch (NamingException ne) {
-            result = false;
-        }
-        return result;
+    @Test
+    public void testStateless() throws Exception {
+        System.getProperties().put("java.naming.factory.initial", "com.manorrock.herring.DefaultInitialContextFactory");
+        DefaultEJBContainer container = (DefaultEJBContainer) EJBContainer.createEJBContainer();
+        container.bind(new StatelessTestBean(), "java:global/classes/StatelessTestBean");
+        StatelessTestBean testBean = (StatelessTestBean) container.getContext().lookup("java:global/classes/StatelessTestBean");
+        assertEquals("Hello World", testBean.helloWorld());
     }
 }

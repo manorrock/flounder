@@ -23,64 +23,22 @@
  *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-package com.manorrock.flounder;
-
-import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+package javax.ejb;
 
 /**
- * The default EJB container.
- *
+ * A @Stateless test object.
+ * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class DefaultEJBContainer extends EJBContainer {
+@Stateless
+public class StatelessTestBean {
 
     /**
-     * Stores the context.
+     * Hello world.
+     * 
+     * @return "Hello World";
      */
-    private Context context;
-
-    /**
-     * Shutdown the EJB container.
-     */
-    @Override
-    public void close() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    /**
-     * Get the naming context.
-     *
-     * @return the naming context.
-     */
-    @Override
-    public Context getContext() {
-        if (context == null) {
-            try {
-                context = new InitialContext();
-            } catch (NamingException ne) {
-                throw new RuntimeException(ne);
-            }
-        }
-        return context;
-    }
-
-    /**
-     * Bind EJB.
-     *
-     * @param ejb the EJB to bind.
-     * @param name the name to bind it to.
-     * @return true if bound, false otherwise.
-     */
-    public boolean bind(Object ejb, String name) {
-        boolean result = true;
-        try {
-            getContext().bind(name, ejb);
-        } catch (NamingException ne) {
-            result = false;
-        }
-        return result;
+    public String helloWorld() {
+        return "Hello World";
     }
 }
