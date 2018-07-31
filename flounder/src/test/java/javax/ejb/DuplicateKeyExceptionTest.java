@@ -25,26 +25,32 @@
  */
 package javax.ejb;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import org.junit.Test;
+
 /**
- * The CreateException.
- * 
+ * The JUnit tests for the DuplicateKeyException class.
+ *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class CreateException extends Exception {
-    
+public class DuplicateKeyExceptionTest {
+
     /**
-     * Constructor.
+     * Test getCause method.
      */
-    public CreateException() {
-        super();
+    @Test
+    public void testGetCause() {
+        DuplicateKeyException exception = new DuplicateKeyException();
+        assertNull(exception.getCause());
     }
 
     /**
-     * Constructor.
-     * 
-     * @param message the message.
+     * Test getMessage method.
      */
-    public CreateException(String message) {
-        super(message);
+    @Test
+    public void testGetNessage() {
+        DuplicateKeyException exception = new DuplicateKeyException("this is my message");
+        assertEquals("this is my message", exception.getMessage());
     }
 }

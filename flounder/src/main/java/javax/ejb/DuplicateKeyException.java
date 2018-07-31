@@ -26,16 +26,16 @@
 package javax.ejb;
 
 /**
- * The CreateException.
+ * The DuplicateKeyException.
  * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class CreateException extends Exception {
+public class DuplicateKeyException extends CreateException {
     
     /**
      * Constructor.
      */
-    public CreateException() {
+    public DuplicateKeyException() {
         super();
     }
 
@@ -44,7 +44,7 @@ public class CreateException extends Exception {
      * 
      * @param message the message.
      */
-    public CreateException(String message) {
+    public DuplicateKeyException(String message) {
         super(message);
     }
 }
