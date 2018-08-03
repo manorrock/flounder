@@ -38,4 +38,11 @@ import java.lang.annotation.Target;
 @Target(value = TYPE)
 @Retention(value = RUNTIME)
 public @interface DependsOn {
+    
+    /**
+     * Get the components needed to be initialized before this one.
+     * 
+     * @return the components.
+     */
+    String[] value();
 }
