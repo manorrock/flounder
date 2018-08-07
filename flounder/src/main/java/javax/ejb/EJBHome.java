@@ -25,10 +25,47 @@
  */
 package javax.ejb;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
 /**
  * The EJB home API.
- * 
+ *
  * @author Manfred Riem (mriem@veneni.com)
  */
-public interface EJBHome {
+public interface EJBHome extends Remote {
+
+    /**
+     * Get the EJB meta-data.
+     *
+     * @return the EJB meta-data.
+     * @throws RemoteException when a serious error occurs.
+     */
+    EJBMetaData getEJBMetaData() throws RemoteException;
+
+    /**
+     * Get the Home handle.
+     *
+     * @return the Home handle.
+     * @throws RemoteException when a serious error occurs.
+     */
+    HomeHandle getHomeHandle() throws RemoteException;
+
+    /**
+     * Remove the EJB.
+     *
+     * @param handle the handle of the EJB to remove.
+     * @throws RemoteException when a serious error occurs.
+     * @throws RemoveException when not allowed to remove the EJB.
+     */
+    void remove(Handle handle) throws RemoteException, RemoveException;
+
+    /**
+     * Remove the EJB.
+     *
+     * @param primaryKey the primary key of the EJB to remove.
+     * @throws RemoteException when a serious error occurs.
+     * @throws RemoveException when not allowed to remove the EJB.
+     */
+    void remove(Object primaryKey) throws RemoteException, RemoveException;
 }
