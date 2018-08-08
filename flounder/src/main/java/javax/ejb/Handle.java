@@ -26,18 +26,9 @@
 package javax.ejb;
 
 /**
- * The EJB local home API.
- *
+ * The Handle API.
+ * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public interface EJBLocalHome {
-
-    /**
-     * Remove the EJBy.
-     *
-     * @param primaryKey the primary key of the EJB.
-     * @throws RemoveException when not allowed to remove.
-     * @throws EJBException when a serious error occurs.
-     */
-    void remove(Object primaryKey) throws RemoveException, EJBException;
+public interface Handle {
 }
