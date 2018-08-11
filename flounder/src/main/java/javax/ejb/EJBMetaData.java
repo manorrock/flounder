@@ -27,8 +27,50 @@ package javax.ejb;
 
 /**
  * The EJBMetaData API.
- * 
+ *
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public interface EJBMetaData {
+
+    /**
+     * Get the EJB home.
+     *
+     * @return the EJB home.
+     */
+    EJBHome getEJBHome();
+
+    /**
+     * Get the Home interface class.
+     *
+     * @return the Home interface class.
+     */
+    Class getHomeInterfaceClass();
+
+    /**
+     * Get the primary key class.
+     *
+     * @return the primary key class.
+     */
+    Class getPrimaryKeyClass();
+
+    /**
+     * Get the Remote interface class.
+     *
+     * @return the Remote interface class.
+     */
+    Class getRemoteInterfaceClass();
+
+    /**
+     * Is this a session bean?
+     *
+     * @return true if it is, false otherwise.
+     */
+    boolean isSession();
+
+    /**
+     * Is this a stateless session bean?
+     *
+     * @return true if it is, false otherwise.
+     */
+    boolean isStatelessSession();
 }
