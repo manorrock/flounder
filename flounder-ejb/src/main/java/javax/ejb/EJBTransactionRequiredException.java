@@ -30,7 +30,7 @@ package javax.ejb;
  * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class EJBTransactionRequiredException extends ConcurrentAccessException {
+public class EJBTransactionRequiredException extends EJBException {
 
     /**
      * Constructor.
@@ -45,15 +45,5 @@ public class EJBTransactionRequiredException extends ConcurrentAccessException {
      */
     public EJBTransactionRequiredException(String message) {
         super(message);
-    }
-
-    /**
-     * Constructor.
-     *
-     * @param message the message.
-     * @param exception the exception.
-     */
-    public EJBTransactionRequiredException(String message, Exception exception) {
-        super(message, exception);
     }
 }

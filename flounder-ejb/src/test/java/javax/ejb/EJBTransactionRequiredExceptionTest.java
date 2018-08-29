@@ -52,14 +52,4 @@ public class EJBTransactionRequiredExceptionTest {
         EJBTransactionRequiredException exception = new EJBTransactionRequiredException("this is my message");
         assertEquals("this is my message", exception.getMessage());
     }
-
-    /**
-     * Test getCausedByException method.
-     */
-    @Test
-    public void testGetCausedByException3() {
-        EJBTransactionRequiredException exception = new EJBTransactionRequiredException("this is my message", new RuntimeException());
-        assertEquals("this is my message", exception.getMessage());
-        assertTrue(exception.getCausedByException() instanceof RuntimeException);
-    }
 }
