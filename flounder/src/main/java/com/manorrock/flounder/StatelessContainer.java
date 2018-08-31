@@ -31,4 +31,12 @@ package com.manorrock.flounder;
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public interface StatelessContainer {
+    
+    /**
+     * Bind a stateless EJB.
+     * 
+     * @param name the name to bind.
+     * @param object the object to bind.
+     */
+    public void bindStateless(String name, Object object);
 }
