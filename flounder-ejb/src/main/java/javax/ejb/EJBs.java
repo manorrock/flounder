@@ -38,4 +38,11 @@ import java.lang.annotation.Target;
 @Target(value = TYPE)
 @Retention(value = RUNTIME)
 public @interface EJBs {
+    
+    /**
+     * Get the EJBs.
+     * 
+     * @return the EJBs.
+     */
+    EJB[] value();
 }
