@@ -129,6 +129,10 @@
             <organization>Manorrock.com</organization>
         </developer>
     </developers>
+    <modules>
+        <module>flounder</module>
+        <module>flounder-ejb</module>
+    </modules>
     <profiles>
         <profile>
             <id>coverage</id>
@@ -152,12 +156,6 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile>        
-        <profile>
-            <id>test</id>
-            <modules>
-                <module>test</module>
-            </modules>
         </profile>
     </profiles>
     <properties>
@@ -170,8 +168,4 @@
         <developerConnection>scm:git:git@github.com:manorrock/flounder.git</developerConnection>
         <url>https://github.com/manorrock/flounder</url>
     </scm>
-    <modules>
-        <module>flounder</module>
-        <module>flounder-ejb</module>
-    </modules>
 </project>
