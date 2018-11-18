@@ -63,6 +63,11 @@
     </build>
     <dependencies>
         <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>com.manorrock.flounder</groupId>
             <artifactId>flounder-ejb</artifactId>
             <version>${project.version}</version>
