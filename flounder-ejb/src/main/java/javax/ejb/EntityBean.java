@@ -41,7 +41,8 @@ public interface EntityBean extends EnterpriseBean {
      * @throws EJBException when a serious error occurs.
      * @throws RemoteException when a remote error occurs.
      */
-//    void setEntityContext(EntityContext context) throws EJBException, RemoteException;
+    void setEntityContext(EntityContext context) throws EJBException, RemoteException;
+    
     /**
      * Unset the entity context.
      *
