@@ -26,16 +26,16 @@
 package javax.ejb;
 
 /**
- * The annotation that defines the create method for an EJB.
+ * The annotation that defines the local interfaces for an EJB.
  * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public @interface Init {
+public @interface Local {
     
     /**
-     * Get the method name.
+     * Get the local interfaces.
      * 
-     * @return the method name.
+     * @return the local interfaces.
      */
-    String value() default "";
+    Class[] value() default {};
 }
