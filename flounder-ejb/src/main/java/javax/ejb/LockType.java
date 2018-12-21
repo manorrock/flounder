@@ -27,8 +27,16 @@ package javax.ejb;
 
 /**
  * The LockType.
- * 
+ *
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public enum LockType {
+    /**
+     * A read lock.
+     */
+    READ,
+    /**
+     * A write lock.
+     */
+    WRITE
 }
