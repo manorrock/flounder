@@ -30,5 +30,5 @@ package javax.ejb;
  * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class MessageDrivenContext {
+public interface MessageDrivenContext extends EJBContext {
 }
