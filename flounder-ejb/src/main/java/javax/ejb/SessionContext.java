@@ -25,10 +25,62 @@
  */
 package javax.ejb;
 
+import javax.xml.rpc.handler.MessageContext;
+
 /**
  * The SessionContext API.
- * 
+ *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public interface SessionContext {
+public interface SessionContext extends EJBContext {
+
+    /**
+     * Get the business object.
+     *
+     * @param <T> the type.
+     * @param businessInterface the business interface.
+     * @return the business object.
+     * @throws IllegalStateException when the method cannot be called.
+     */
+    <T> T getBusinessObject(Class<T> businessInterface) throws IllegalStateException;
+
+    /**
+     * Get the EJB local object.
+     *
+     * @return the EJB local object.
+     * @throws IllegalStateException when the method cannot be called.
+     */
+    EJBLocalObject getEJBLocalObject() throws IllegalStateException;
+
+    /**
+     * Get the EJB object.
+     *
+     * @return the EJB object.
+     * @throws IllegalStateException when the method cannot be called.
+     */
+    EJBObject getEJBObject() throws IllegalStateException;
+
+    /**
+     * Get the invoked business interface.
+     *
+     * @return the class.
+     * @throws IllegalStateException when the method cannot be called.
+     */
+    Class getInvokedBusinessInterface() throws IllegalStateException;
+
+    /**
+     * Get the message context.
+     *
+     * @return the message context.
+     * @throws IllegalStateException when the method cannot be called.
+     */
+    MessageContext getMessageContext() throws IllegalStateException;
+
+    /**
+     * Was cancel called?
+     *
+     * @return true if it was, false otherwise.
+     * @throws IllegalStateException when the method cannot be called.
+     */
+    boolean wasCancelCalled() throws IllegalStateException;
 }
