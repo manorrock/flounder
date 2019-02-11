@@ -25,10 +25,104 @@
  */
 package javax.ejb;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
- * The timer API.
+ * The Timer API.
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public interface Timer {
+
+    /**
+     * Cancel the timer.
+     *
+     * @throws IllegalStateException when state does not allow this call.
+     * @throws NoSuchObjectLocalException when the timer is not active.
+     * @throws EJBException when an EJB error occurs.
+     */
+    void cancel() throws IllegalStateException, NoSuchObjectLocalException,
+            EJBException;
+
+    /**
+     * Get the time remaining.
+     *
+     * @return the time remaining.
+     * @throws IllegalStateException when state does not allow this call.
+     * @throws NoSuchObjectLocalException when the timer is not active.
+     * @throws NoMoreTimeoutsException when no more future timeouts are
+     * scheduled.
+     * @throws EJBException when an EJB error occurs.
+     */
+    long getTimeRemaining() throws IllegalStateException,
+            NoSuchObjectLocalException, NoMoreTimeoutsException, EJBException;
+
+    /**
+     * Get the next timeout.
+     *
+     * @return the next timeout.
+     * @throws IllegalStateException when state does not allow this call.
+     * @throws NoSuchObjectLocalException when the timer is not active.
+     * @throws NoMoreTimeoutsException when no more future timeouts are
+     * scheduled.
+     * @throws EJBException when an EJB error occurs.
+     */
+    Date getNextTimeout() throws IllegalStateException,
+            NoSuchObjectLocalException, NoMoreTimeoutsException, EJBException;
+
+    /**
+     * Get the schedule.
+     *
+     * @return the schedule expression.
+     * @throws IllegalStateException when state does not allow this call.
+     * @throws NoSuchObjectLocalException when the timer is not active.
+     * @throws EJBException when an EJB error occurs.
+     */
+    ScheduleExpression getSchedule() throws IllegalStateException,
+            NoSuchObjectLocalException, EJBException;
+
+    /**
+     * Is the timer persistent.
+     *
+     * @return true if it is, false otherwise.
+     * @throws IllegalStateException when state does not allow this call.
+     * @throws NoSuchObjectLocalException when the timer is not active.
+     * @throws EJBException when an EJB error occurs.
+     */
+    boolean isPersistent() throws IllegalStateException,
+            NoSuchObjectLocalException, EJBException;
+
+    /**
+     * Is this a calendar timer.
+     *
+     * @return true if it is, false otherwise.
+     * @throws IllegalStateException when state does not allow this call.
+     * @throws NoSuchObjectLocalException when the timer is not active.
+     * @throws EJBException when an EJB error occurs.
+     */
+    boolean isCalendarTimer() throws IllegalStateException,
+            NoSuchObjectLocalException, EJBException;
+
+    /**
+     * Get the timer info.
+     *
+     * @return the timer info, or null if not passed.
+     * @throws IllegalStateException when state does not allow this call.
+     * @throws NoSuchObjectLocalException when the timer is not active.
+     * @throws EJBException when an EJB error occurs.
+     */
+    Serializable getInfo() throws IllegalStateException,
+            NoSuchObjectLocalException, EJBException;
+
+    /**
+     * Get the timer handle.
+     *
+     * @return the timer handle.
+     * @throws IllegalStateException when state does not allow this call.
+     * @throws NoSuchObjectLocalException when the timer is not active.
+     * @throws EJBException when an EJB error occurs.
+     */
+    TimerHandle getHandle() throws IllegalStateException,
+            NoSuchObjectLocalException, EJBException;
 }
