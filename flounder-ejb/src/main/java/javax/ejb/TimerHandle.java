@@ -31,4 +31,15 @@ package javax.ejb;
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public interface TimerHandle {
+
+    /**
+     * Get the timer.
+     * 
+     * @return the timer.
+     * @throws IllegalStateException when state does not allow this call.
+     * @throws NoSuchObjectLocalException when the timer is not active.
+     * @throws EJBException when an EJB error occurs.
+     */
+    public Timer getTimer() throws IllegalStateException, 
+            NoSuchObjectLocalException, EJBException;
 }

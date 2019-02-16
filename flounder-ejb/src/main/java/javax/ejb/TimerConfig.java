@@ -26,8 +26,6 @@
 package javax.ejb;
 
 import java.io.Serializable;
-import static java.lang.ProcessBuilder.Redirect.to;
-import java.lang.reflect.Method;
 
 /**
  * The TimerConfig class.
