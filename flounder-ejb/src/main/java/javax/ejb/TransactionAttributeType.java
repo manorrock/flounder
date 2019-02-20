@@ -31,5 +31,32 @@ package javax.ejb;
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public enum TransactionAttributeType {
+
+    /**
+     * A transaction is mandatory and if there is no transaction an exception is
+     * thrown.
+     */
+    MANDATORY,
+    /**
+     * A transaction is required and if there is no transaction present one will
+     * be started.
+     */
     REQUIRED,
+    /**
+     * A new transaction is required and one will be started, and if any
+     * transaction is currently in flight it will be suspended.
+     */
+    REQUIRES_NEW,
+    /**
+     * A transaction can be supported.
+     */
+    SUPPORTS,
+    /**
+     * A transaction is NOT supported.
+     */
+    NOT_SUPPORTED,
+    /**
+     * A transaction can NEVER be used.
+     */
+    NEVER
 }
