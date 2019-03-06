@@ -33,6 +33,11 @@ package javax.ejb;
 public enum TransactionManagementType {
     
     /**
+     * Bean managed.
+     */
+    BEAN,
+    
+    /**
      * Container managed.
      */
     CONTAINER
