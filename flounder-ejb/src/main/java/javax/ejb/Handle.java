@@ -25,10 +25,21 @@
  */
 package javax.ejb;
 
+import java.io.Serializable;
+import java.rmi.RemoteException;
+
 /**
  * The Handle API.
  * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public interface Handle {
+public interface Handle extends Serializable {
+
+    /**
+     * Get the EJB object.
+     * 
+     * @return the EJB object.
+     * @throws RemoteException when a system has occurred.
+     */
+    EJBObject getEJBObject() throws RemoteException;
 }
