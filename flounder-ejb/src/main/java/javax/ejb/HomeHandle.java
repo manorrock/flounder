@@ -25,10 +25,21 @@
  */
 package javax.ejb;
 
+import java.io.Serializable;
+import java.rmi.RemoteException;
+
 /**
  * The HomeHandle API.
- * 
+ *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public interface HomeHandle {
+public interface HomeHandle extends Serializable {
+
+    /**
+     * Get the EJB home.
+     * 
+     * @return the EJB home.
+     * @throws RemoteException when a system error occurs.
+     */
+    EJBHome getEJBHome() throws RemoteException;
 }
