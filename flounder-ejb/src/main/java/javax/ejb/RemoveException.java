@@ -27,8 +27,23 @@ package javax.ejb;
 
 /**
  * The RemovException.
- * 
+ *
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public class RemoveException extends Exception {
+
+    /**
+     * Constructor.
+     */
+    public RemoveException() {
+    }
+
+    /**
+     * Constructor.
+     *
+     * @param message the message.
+     */
+    public RemoveException(String message) {
+        super(message);
+    }
 }
