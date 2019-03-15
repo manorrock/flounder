@@ -25,12 +25,14 @@
  */
 package javax.ejb;
 
+import java.io.Serializable;
+
 /**
  * The TimerHandler API.
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public interface TimerHandle {
+public interface TimerHandle extends Serializable {
 
     /**
      * Get the timer.
