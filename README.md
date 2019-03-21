@@ -27,3 +27,8 @@ See [Contributing](CONTRIBUTING.md)
 
 See [Code of Conduct](CODE_OF_CONDUCT.md)
 
+## Important notice
+
+Note if you file issues, answer questions and/or issue pull requests you agree
+that those contributions will be owned by Manorrock.com and that Manorrock.com 
+can use those contributions in any manner Manorrock.com so desires.
