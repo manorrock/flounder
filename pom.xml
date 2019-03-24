@@ -135,11 +135,6 @@
                 <version>1.0.0</version>
             </dependency>
             <dependency>
-                <groupId>jakarta.enterprise</groupId>
-                <artifactId>jakarta.enterprise.cdi-api</artifactId>
-                <version>2.0.1</version>
-            </dependency>
-            <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.12</version>
@@ -163,9 +158,9 @@
             <id>coverage</id>
         </profile>
         <profile>
-            <id>jdk11</id>
+            <id>jdk9</id>
             <activation>
-                <jdk>[10,)</jdk>
+                <jdk>[9,)</jdk>
             </activation>
             <build>
                 <plugins>
@@ -180,7 +175,7 @@
                                     <goal>compile</goal>
                                 </goals>
                                 <configuration>
-                                    <release>10</release>
+                                    <release>9</release>
                                 </configuration>
                             </execution>
                             <execution>
