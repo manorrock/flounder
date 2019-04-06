@@ -1,5 +1,2 @@
-/flounder/target/
-/target/
-/flounder/nbproject/
-/flounder-ejb/target/
-/flounder-ejb/nbproject/
+nbproject/
+target/
