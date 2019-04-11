@@ -36,6 +36,11 @@ import javax.naming.NamingException;
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public class DefaultEJBContainer extends EJBContainer {
+    
+    /**
+     * Stores the closed flag.
+     */
+    private boolean closed;
 
     /**
      * Stores the context.
@@ -47,7 +52,7 @@ public class DefaultEJBContainer extends EJBContainer {
      */
     @Override
     public void close() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.closed = true;
     }
 
     /**
