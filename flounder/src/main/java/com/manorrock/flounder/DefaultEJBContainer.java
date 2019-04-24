@@ -25,6 +25,8 @@
  */
 package com.manorrock.flounder;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -35,7 +37,7 @@ import javax.naming.NamingException;
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class DefaultEJBContainer extends EJBContainer {
+public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanContainer {
     
     /**
      * Stores the closed flag.
@@ -46,6 +48,18 @@ public class DefaultEJBContainer extends EJBContainer {
      * Stores the context.
      */
     private Context context;
+    
+    /**
+     * Stores the list of stateless beans.
+     */
+    private List<Class> statelessBeans;
+    
+    /**
+     * Constructor.
+     */
+    public DefaultEJBContainer() {
+        statelessBeans = new ArrayList<>();
+    }
 
     /**
      * Shutdown the EJB container.
@@ -87,5 +101,15 @@ public class DefaultEJBContainer extends EJBContainer {
             result = false;
         }
         return result;
+    }
+
+    /**
+     * Add a stateless bean.
+     * 
+     * @param clazz the class.
+     */
+    @Override
+    public void addStatelessBean(Class clazz) {
+        statelessBeans.add(clazz);
     }
 }
