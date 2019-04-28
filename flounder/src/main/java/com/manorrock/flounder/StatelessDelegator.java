@@ -37,4 +37,12 @@ package com.manorrock.flounder;
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public class StatelessDelegator {
+    
+    /**
+     * Setup before calling the business method.
+     * 
+     * @param ejb the EJB instance.
+     */
+    public void ejbBeforeCall(Object ejb) {
+    }
 }
