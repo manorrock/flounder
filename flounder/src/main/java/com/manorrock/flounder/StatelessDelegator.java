@@ -45,4 +45,13 @@ public class StatelessDelegator {
      */
     public void ejbBeforeCall(Object ejb) {
     }
+    
+    
+    /**
+     * Tear down after calling the business method.
+     * 
+     * @param ejb the EJB instance.
+     */
+    public void ejbAfterCall(Object ejb) {
+    }
 }
