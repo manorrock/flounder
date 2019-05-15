@@ -33,6 +33,13 @@ package com.manorrock.flounder;
 public interface EnterpriseBeanContainer {
     
     /**
+     * Add a stateful bean.
+     * 
+     * @param clazz the clazz.
+     */
+    public void addStatefulBean(Class clazz);
+    
+    /**
      * Add a stateless bean.
      * 
      * @param clazz the clazz.

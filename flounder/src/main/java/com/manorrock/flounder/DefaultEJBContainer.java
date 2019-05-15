@@ -52,12 +52,18 @@ public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanC
     /**
      * Stores the list of stateless beans.
      */
+    private List<Class> statefulBeans;
+    
+    /**
+     * Stores the list of stateless beans.
+     */
     private List<Class> statelessBeans;
     
     /**
      * Constructor.
      */
     public DefaultEJBContainer() {
+        statefulBeans = new ArrayList<>();
         statelessBeans = new ArrayList<>();
     }
 
@@ -101,6 +107,16 @@ public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanC
             result = false;
         }
         return result;
+    }
+
+    /**
+     * Add a stateful bean.
+     * 
+     * @param clazz the class.
+     */
+    @Override
+    public void addStatefulBean(Class clazz) {
+        statefulBeans.add(clazz);
     }
 
     /**
