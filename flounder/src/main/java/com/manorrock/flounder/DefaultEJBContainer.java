@@ -50,6 +50,11 @@ public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanC
     private Context context;
     
     /**
+     * Stores the list of singleton beans.
+     */
+    private List<Class> singletonBeans;
+    
+    /**
      * Stores the list of stateless beans.
      */
     private List<Class> statefulBeans;
@@ -63,6 +68,7 @@ public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanC
      * Constructor.
      */
     public DefaultEJBContainer() {
+        singletonBeans = new ArrayList<>();
         statefulBeans = new ArrayList<>();
         statelessBeans = new ArrayList<>();
     }
@@ -107,6 +113,16 @@ public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanC
             result = false;
         }
         return result;
+    }
+    
+    /**
+     * Add a singleton bean.
+     * 
+     * @param clazz the class.
+     */
+    @Override
+    public void addSingletonBean(Class clazz) {
+        singletonBeans.add(clazz);
     }
 
     /**
