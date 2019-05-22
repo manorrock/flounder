@@ -25,8 +25,10 @@
  */
 package com.manorrock.flounder;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.Stateless;
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -38,7 +40,7 @@ import javax.naming.NamingException;
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanContainer {
-    
+
     /**
      * Stores the closed flag.
      */
@@ -48,29 +50,23 @@ public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanC
      * Stores the context.
      */
     private Context context;
-    
+
     /**
      * Stores the list of singleton beans.
      */
     private List<Class> singletonBeans;
-    
+
     /**
      * Stores the list of stateless beans.
      */
     private List<Class> statefulBeans;
-    
-    /**
-     * Stores the list of stateless beans.
-     */
-    private List<Class> statelessBeans;
-    
+
     /**
      * Constructor.
      */
     public DefaultEJBContainer() {
         singletonBeans = new ArrayList<>();
         statefulBeans = new ArrayList<>();
-        statelessBeans = new ArrayList<>();
     }
 
     /**
@@ -114,10 +110,10 @@ public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanC
         }
         return result;
     }
-    
+
     /**
      * Add a singleton bean.
-     * 
+     *
      * @param clazz the class.
      */
     @Override
@@ -127,7 +123,7 @@ public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanC
 
     /**
      * Add a stateful bean.
-     * 
+     *
      * @param clazz the class.
      */
     @Override
@@ -137,11 +133,22 @@ public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanC
 
     /**
      * Add a stateless bean.
-     * 
+     *
      * @param clazz the class.
      */
     @Override
     public void addStatelessBean(Class clazz) {
-        statelessBeans.add(clazz);
+        try {
+            Object instance = clazz.getDeclaredConstructor().newInstance();
+            Stateless stateless = (Stateless) clazz.getAnnotation(Stateless.class);
+            String name = stateless.name();
+            if (name.equals("")) {
+                name = clazz.getSimpleName();
+            }
+            bind(instance, name);
+        } catch (NoSuchMethodException | InstantiationException | 
+                IllegalAccessException | InvocationTargetException e) {
+            // use a logger?
+        }
     }
 }

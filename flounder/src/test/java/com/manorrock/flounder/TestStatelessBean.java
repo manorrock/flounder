@@ -25,57 +25,22 @@
  */
 package com.manorrock.flounder;
 
-import javax.naming.Context;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import org.junit.Test;
+import javax.ejb.Stateless;
 
 /**
- * The JUnit tests for the DefaultEJBContainer class.
+ * A test @Stateless bean.
  * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class DefaultEJBContainerTest {
+@Stateless
+public class TestStatelessBean {
     
     /**
-     * Test close method.
-     */
-    @Test
-    public void testClose() {
-        DefaultEJBContainer container = new DefaultEJBContainer();
-    }
-
-    /**
-     * Test getContext method.
-     */
-    @Test
-    public void testGetContext() {
-        DefaultEJBContainer container = new DefaultEJBContainer();
-        assertNotNull(container.getContext());
-    }
-
-    /**
-     * Test bind method.
-     */
-    @Test
-    public void testBind() {
-        DefaultEJBContainer container = new DefaultEJBContainer();
-        assertFalse(container.bind("BIND", "NAME"));
-    }
-    
-    /**
-     * Test stateless bean.
+     * Test method.
      * 
-     * @throws Exception when an error occurs.
+     * @return the test method.
      */
-    @Test
-    public void testStatelessBean() throws Exception {
-        System.setProperty("java.naming.factory.initial", "com.manorrock.herring.DefaultInitialContextFactory");
-        DefaultEJBContainer container = new DefaultEJBContainer();
-        container.addStatelessBean(TestStatelessBean.class);
-        Context context = container.getContext();
-        TestStatelessBean bean = (TestStatelessBean) context.lookup("TestStatelessBean");
-        assertEquals("test", bean.test());
+    public String test() {
+        return "test";
     }
 }
