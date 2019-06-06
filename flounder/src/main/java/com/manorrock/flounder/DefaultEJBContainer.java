@@ -28,6 +28,7 @@ package com.manorrock.flounder;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.Singleton;
 import javax.ejb.Stateless;
 import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
@@ -52,11 +53,6 @@ public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanC
     private Context context;
 
     /**
-     * Stores the list of singleton beans.
-     */
-    private List<Class> singletonBeans;
-
-    /**
      * Stores the list of stateless beans.
      */
     private List<Class> statefulBeans;
@@ -65,7 +61,6 @@ public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanC
      * Constructor.
      */
     public DefaultEJBContainer() {
-        singletonBeans = new ArrayList<>();
         statefulBeans = new ArrayList<>();
     }
 
@@ -118,7 +113,18 @@ public class DefaultEJBContainer extends EJBContainer implements EnterpriseBeanC
      */
     @Override
     public void addSingletonBean(Class clazz) {
-        singletonBeans.add(clazz);
+        try {
+            Object instance = clazz.getDeclaredConstructor().newInstance();
+            Singleton singleton = (Singleton) clazz.getAnnotation(Singleton.class);
+            String name = singleton.name();
+            if (name.equals("")) {
+                name = clazz.getSimpleName();
+            }
+            bind(instance, name);
+        } catch (NoSuchMethodException | InstantiationException | 
+                IllegalAccessException | InvocationTargetException e) {
+            // use a logger?
+        }
     }
 
     /**

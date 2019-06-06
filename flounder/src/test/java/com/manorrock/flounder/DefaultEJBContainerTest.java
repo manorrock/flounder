@@ -78,4 +78,19 @@ public class DefaultEJBContainerTest {
         TestStatelessBean bean = (TestStatelessBean) context.lookup("TestStatelessBean");
         assertEquals("test", bean.test());
     }
+    
+    /**
+     * Test singleton bean.
+     * 
+     * @throws Exception when an error occurs.
+     */
+    @Test
+    public void testSingletonBean() throws Exception {
+        System.setProperty("java.naming.factory.initial", "com.manorrock.herring.DefaultInitialContextFactory");
+        DefaultEJBContainer container = new DefaultEJBContainer();
+        container.addSingletonBean(TestSingletonBean.class);
+        Context context = container.getContext();
+        TestSingletonBean bean = (TestSingletonBean) context.lookup("TestSingletonBean");
+        assertEquals("test", bean.test());
+    }
 }
