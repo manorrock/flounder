@@ -65,6 +65,21 @@ public class DefaultEJBContainerTest {
     }
     
     /**
+     * Test stateful bean.
+     * 
+     * @throws Exception when an error occurs.
+     */
+    @Test
+    public void testStatefulBean() throws Exception {
+        System.setProperty("java.naming.factory.initial", "com.manorrock.herring.DefaultInitialContextFactory");
+        DefaultEJBContainer container = new DefaultEJBContainer();
+        container.addStatefulBean(TestStatefulBean.class);
+        Context context = container.getContext();
+        TestStatefulBean bean = (TestStatefulBean) context.lookup("TestStatefulBean");
+        assertEquals("test", bean.test());
+    }
+    
+    /**
      * Test stateless bean.
      * 
      * @throws Exception when an error occurs.
