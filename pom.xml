@@ -152,7 +152,6 @@
     <modules>
         <module>flounder</module>
         <module>flounder-ejb</module>
-        <module>flounder-bytebuddy</module>
     </modules>
     <profiles>
         <profile>
