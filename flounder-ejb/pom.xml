@@ -11,7 +11,7 @@
     </parent>
     <artifactId>flounder-ejb</artifactId>
     <packaging>jar</packaging>
-    <name>Manorrock Flounder - EJB API</name>
+    <name>Manorrock Flounder EJB API</name>
     <build>
         <plugins>
             <plugin>
