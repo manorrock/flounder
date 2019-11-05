@@ -12,9 +12,14 @@
     <artifactId>flounder-cdi</artifactId>
     <packaging>jar</packaging>
     <name>Manorrock Flounder CDI provider</name>
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.enterprise</groupId>
+            <artifactId>jakarta.enterprise.cdi-api</artifactId>
+        </dependency>
+    </dependencies>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 </project>
-
