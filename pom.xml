@@ -156,7 +156,6 @@
     </developers>
     <modules>
         <module>flounder</module>
-        <module>flounder-cdi</module>
         <module>flounder-ejb</module>
         <module>tck</module>
     </modules>
