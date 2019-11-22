@@ -157,7 +157,6 @@
     <modules>
         <module>flounder</module>
         <module>flounder-ejb</module>
-        <module>tck</module>
     </modules>
     <profiles>
         <profile>
