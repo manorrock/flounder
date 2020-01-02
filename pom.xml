@@ -157,6 +157,7 @@
     <modules>
         <module>flounder</module>
         <module>flounder-ejb</module>
+        <module>flounder-servlet</module>
     </modules>
     <profiles>
         <profile>
