@@ -15,6 +15,7 @@ for the release you are using in the links below.
 
 ## Documentation for older releases
 
+1. [Version 19.12.0](https://github.com/manorrock/piranha/tree/v19.12.0)
 1. [Version 3.2.5.0](https://github.com/manorrock/piranha/tree/v3.2.5.0)
 2. [Version 3.2.4.0](https://github.com/manorrock/piranha/tree/v3.2.4.0)
 3. [Version 3.2.3.0](https://github.com/manorrock/piranha/tree/v3.2.3.0)
