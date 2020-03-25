@@ -9,4 +9,18 @@
     <artifactId>flounder-cdi</artifactId>
     <packaging>jar</packaging>
     <name>Manorrock Flounder CDI</name>
+    <dependencies>
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.manorrock.flounder</groupId>
+            <artifactId>flounder-ejb</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>
