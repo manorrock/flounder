@@ -29,28 +29,51 @@
  */
 package com.manorrock.flounder.cdi;
 
-import java.util.Map;
-import javax.ejb.EJBException;
 import javax.ejb.embeddable.EJBContainer;
-import javax.ejb.spi.EJBContainerProvider;
-import javax.enterprise.inject.spi.CDI;
+import javax.enterprise.inject.se.SeContainer;
+import javax.enterprise.inject.se.SeContainerInitializer;
+import org.junit.After;
+import static org.junit.Assert.assertTrue;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
- * The CDI EJB container provider.
- * 
+ * The JUnit tests for the CDI EJB container.
+ *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class CdiEjbContainerProvider implements EJBContainerProvider {
+public class CdiEjbContainerTest {
 
     /**
-     * Create the CDI EJB container.
-     * 
-     * @param properties the properties.
-     * @return the CDI EJB container, or null.
-     * @throws EJBException when a serious error occurs.
+     * Stores the Weld SE container.
      */
-    @Override
-    public EJBContainer createEJBContainer(Map<?, ?> properties) throws EJBException {
-        return (EJBContainer) CDI.current().select(CdiEjbContainer.class);
+    private SeContainer weld;
+
+    /**
+     * Before testing.
+     */
+    @Before
+    public void before() {
+        SeContainerInitializer initializer = SeContainerInitializer.newInstance();
+        this.weld = initializer.initialize();
+    }
+
+    /**
+     * After testing.
+     */
+    @After
+    public void after() {
+        if (this.weld != null) {
+            this.weld.close();
+        }
+    }
+
+    /**
+     * Test creating CDI EJB container.
+     */
+    @Test
+    public void testGetContainer() {
+        EJBContainer container = EJBContainer.createEJBContainer();
+        assertTrue(container instanceof CdiEJBContainer);
     }
 }

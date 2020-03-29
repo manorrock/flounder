@@ -29,33 +29,28 @@
  */
 package com.manorrock.flounder.cdi;
 
+import java.util.Map;
+import javax.ejb.EJBException;
 import javax.ejb.embeddable.EJBContainer;
-import javax.enterprise.context.ApplicationScoped;
-import javax.naming.Context;
+import javax.ejb.spi.EJBContainerProvider;
+import javax.enterprise.inject.spi.CDI;
 
 /**
- * The CDI based EJB container.
+ * The CDI EJB container provider.
  * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
-@ApplicationScoped
-public class CdiEjbContainer extends EJBContainer {
+public class CdiEJBContainerProvider implements EJBContainerProvider {
 
     /**
-     * Close the EJB container.
-     */
-    @Override
-    public void close() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    /**
-     * Get the naming context.
+     * Create the CDI EJB container.
      * 
-     * @return the naming context.
+     * @param properties the properties.
+     * @return the CDI EJB container, or null.
+     * @throws EJBException when a serious error occurs.
      */
     @Override
-    public Context getContext() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public EJBContainer createEJBContainer(Map<?, ?> properties) throws EJBException {
+        return (EJBContainer) CDI.current().select(CdiEJBContainer.class).get();
     }
 }
