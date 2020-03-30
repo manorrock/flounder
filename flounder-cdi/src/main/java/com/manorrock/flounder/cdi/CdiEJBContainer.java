@@ -46,7 +46,7 @@ public class CdiEJBContainer extends EJBContainer {
      */
     @Override
     public void close() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        // no-op as we do not close until the CDI runtime shuts down.
     }
 
     /**
