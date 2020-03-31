@@ -33,6 +33,7 @@ import javax.ejb.embeddable.EJBContainer;
 import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import org.junit.After;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
@@ -75,5 +76,14 @@ public class CdiEjbContainerTest {
     public void testGetContainer() {
         EJBContainer container = EJBContainer.createEJBContainer();
         assertTrue(container instanceof CdiEJBContainer);
+    }
+
+    /**
+     * Test getContext method.
+     */
+    @Test
+    public void testGetContext() {
+        EJBContainer container = EJBContainer.createEJBContainer();
+        assertNotNull(container.getContext());
     }
 }

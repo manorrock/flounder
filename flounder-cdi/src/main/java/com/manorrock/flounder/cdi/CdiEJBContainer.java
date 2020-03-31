@@ -32,6 +32,8 @@ package com.manorrock.flounder.cdi;
 import javax.ejb.embeddable.EJBContainer;
 import javax.enterprise.context.ApplicationScoped;
 import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 /**
  * The CDI based EJB container.
@@ -40,6 +42,11 @@ import javax.naming.Context;
  */
 @ApplicationScoped
 public class CdiEJBContainer extends EJBContainer {
+    
+    /**
+     * Stores the context.
+     */
+    private Context context;
 
     /**
      * Close the EJB container.
@@ -56,6 +63,13 @@ public class CdiEJBContainer extends EJBContainer {
      */
     @Override
     public Context getContext() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (context == null) {
+            try {
+                context = new InitialContext();
+            } catch (NamingException ne) {
+                throw new RuntimeException(ne);
+            }
+        }
+        return context;
     }
 }
