@@ -29,39 +29,62 @@
  */
 package com.manorrock.flounder.cdi;
 
+import java.util.concurrent.ConcurrentHashMap;
 import javax.ejb.Singleton;
-import javax.ejb.Stateless;
-import javax.enterprise.event.Observes;
-import javax.enterprise.inject.spi.AfterBeanDiscovery;
-import javax.enterprise.inject.spi.BeanManager;
-import javax.enterprise.inject.spi.BeforeBeanDiscovery;
-import javax.enterprise.inject.spi.Extension;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.spi.Contextual;
+import javax.enterprise.context.spi.CreationalContext;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 
 /**
- * The CDI EJB portable extension.
+ * The manager for @Stateless beans.
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class CdiEJBExtension implements Extension {
-    
+@ApplicationScoped
+public class StatelessScopeManager {
+
     /**
-     * Before bean discovery.
+     * Stores the beans.
+     */
+    private final ConcurrentHashMap<String, Object> beans = new ConcurrentHashMap<>();
+
+    /**
+     * Create the bean.
      *
-     * @param event the before bean discovery event.
+     * @param <T> the type.
+     * @param contextual the contextual.
+     * @param context the context.
+     * @return the instance.
      */
-    public void beforeBeanDiscovery(@Observes BeforeBeanDiscovery event) {
-        event.addScope(Singleton.class, true, false);
-        event.addScope(Stateless.class, true, false);
+    public <T> T createBean(Contextual<T> contextual, CreationalContext<T> context) {
+        T bean = contextual.create(context);
+        beans.put(contextual.getClass().getName(), bean);
+        try {
+            InitialContext initialContext = new InitialContext();
+            Singleton singleton = bean.getClass().getAnnotation(Singleton.class);
+            if (!singleton.mappedName().equals("")) {
+                initialContext.bind(singleton.mappedName(), bean);
+            }
+            if (singleton.name().equals("")) {
+                initialContext.bind("java:module/" + bean.getClass().getSimpleName(), bean);
+            } else {
+                initialContext.bind("java:module/" + singleton.name(), bean);
+            }
+        } catch (NamingException ne) {
+        }
+        return bean;
     }
-    
+
     /**
-     * After bean discovery.
-     * 
-     * @param event the after bean discovery event.
-     * @param beanManager the Bean manager.
+     * Get the bean.
+     *
+     * @param <T> the type.
+     * @param contextual the contextual.
+     * @return the instance.
      */
-    public void afterBeanDiscovery(@Observes AfterBeanDiscovery event, BeanManager beanManager) {
-        event.addContext(new SingletonScopeContext());
-        event.addContext(new StatelessScopeContext());
+    public <T> T getBean(Contextual<T> contextual) {
+        return (T) beans.get(contextual.getClass().getName());
     }
 }
