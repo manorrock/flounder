@@ -60,7 +60,7 @@ public class SingletonScopeManager {
      */
     public <T> T createBean(Contextual<T> contextual, CreationalContext<T> context) {
         T bean = contextual.create(context);
-        beans.put(contextual.getClass().getName(), bean);
+        beans.put(contextual.toString(), bean);
         try {
             InitialContext initialContext = new InitialContext();
             Singleton singleton = bean.getClass().getAnnotation(Singleton.class);
@@ -85,6 +85,6 @@ public class SingletonScopeManager {
      * @return the instance.
      */
     public <T> T getBean(Contextual<T> contextual) {
-        return (T) beans.get(contextual.getClass().getName());
+        return (T) beans.get(contextual.toString());
     }
 }
