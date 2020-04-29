@@ -18,6 +18,7 @@
     <name>Manorrock Flounder Test Project</name>
     <modules>
         <module>singleton</module>
+        <module>stateful</module>
         <module>stateless</module>
     </modules>
 </project>
