@@ -30,6 +30,7 @@
 package com.manorrock.flounder.cdi;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import javax.ejb.EJBException;
@@ -46,6 +47,26 @@ import javax.enterprise.context.ApplicationScoped;
  */
 @ApplicationScoped
 public class DefaultTimerService implements TimerService {
+    
+    /**
+     * Stores all the timers.
+     */
+    private final ArrayList<Timer> timers;
+    
+    /**
+     * Constructor.
+     */
+    public DefaultTimerService() {
+        timers = new ArrayList<>();
+    }
+
+    /**
+     * @see TimerService#getAllTimers() 
+     */
+    @Override
+    public Collection<Timer> getAllTimers() throws IllegalStateException, EJBException {
+        return timers;
+    } 
 
     @Override
     public Timer createTimer(long duration, Serializable info) throws IllegalArgumentException, IllegalStateException, EJBException {
@@ -100,10 +121,5 @@ public class DefaultTimerService implements TimerService {
     @Override
     public Collection<Timer> getTimers() throws IllegalStateException, EJBException {
         throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Collection<Timer> getAllTimers() throws IllegalStateException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }   
+    }  
 }

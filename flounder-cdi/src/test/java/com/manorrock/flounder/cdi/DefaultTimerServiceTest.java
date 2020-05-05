@@ -34,6 +34,7 @@ import javax.enterprise.inject.se.SeContainer;
 import javax.enterprise.inject.se.SeContainerInitializer;
 import javax.enterprise.inject.spi.CDI;
 import org.junit.After;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -73,11 +74,11 @@ public class DefaultTimerServiceTest {
      *
      * @throws Exception when a serious error occurs.
      */
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void testGetAllTimers() throws Exception {
         System.setProperty("java.naming.factory.initial",
                 "com.manorrock.herring.DefaultInitialContextFactory");
         TimerService timerService = CDI.current().select(TimerService.class).get();
-        timerService.getAllTimers();
+        assertNotNull(timerService.getAllTimers());
     }
 }
