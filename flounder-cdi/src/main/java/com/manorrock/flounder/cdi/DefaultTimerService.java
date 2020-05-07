@@ -66,7 +66,15 @@ public class DefaultTimerService implements TimerService {
     @Override
     public Collection<Timer> getAllTimers() throws IllegalStateException, EJBException {
         return timers;
-    } 
+    }
+
+    /**
+     * @see TimerService#getTimers()
+     */
+    @Override
+    public Collection<Timer> getTimers() throws IllegalStateException, EJBException {
+        return timers;
+    }
 
     @Override
     public Timer createTimer(long duration, Serializable info) throws IllegalArgumentException, IllegalStateException, EJBException {
@@ -117,9 +125,4 @@ public class DefaultTimerService implements TimerService {
     public Timer createCalendarTimer(ScheduleExpression schedule, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
-    @Override
-    public Collection<Timer> getTimers() throws IllegalStateException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }  
 }

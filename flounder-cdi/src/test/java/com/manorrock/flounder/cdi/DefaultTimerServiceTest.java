@@ -81,4 +81,17 @@ public class DefaultTimerServiceTest {
         TimerService timerService = CDI.current().select(TimerService.class).get();
         assertNotNull(timerService.getAllTimers());
     }
+
+    /**
+     * Test getTimers method.
+     *
+     * @throws Exception when a serious error occurs.
+     */
+    @Test
+    public void testGetTimers() throws Exception {
+        System.setProperty("java.naming.factory.initial",
+                "com.manorrock.herring.DefaultInitialContextFactory");
+        TimerService timerService = CDI.current().select(TimerService.class).get();
+        assertNotNull(timerService.getTimers());
+    }
 }
