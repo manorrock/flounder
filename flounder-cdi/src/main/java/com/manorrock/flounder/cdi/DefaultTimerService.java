@@ -61,6 +61,16 @@ public class DefaultTimerService implements TimerService {
     }
 
     /**
+     * @see TimerService#createCalendarTimer(javax.ejb.ScheduleExpression, javax.ejb.TimerConfig) 
+     */
+    @Override
+    public Timer createCalendarTimer(ScheduleExpression schedule, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
+        DefaultCalendarTimer timer = new DefaultCalendarTimer(schedule, timerConfig);
+        timers.add(timer);
+        return timer;
+    }
+    
+    /**
      * @see TimerService#getAllTimers() 
      */
     @Override
@@ -118,11 +128,6 @@ public class DefaultTimerService implements TimerService {
 
     @Override
     public Timer createCalendarTimer(ScheduleExpression schedule) throws IllegalArgumentException, IllegalStateException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Timer createCalendarTimer(ScheduleExpression schedule, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
