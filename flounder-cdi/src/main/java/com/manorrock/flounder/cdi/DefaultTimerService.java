@@ -79,6 +79,16 @@ public class DefaultTimerService implements TimerService {
         timers.add(timer);
         return timer;
     }
+
+    /**
+     * @see TimerService#createIntervalTimer(java.util.Date, long, javax.ejb.TimerConfig) 
+     */
+    @Override
+    public Timer createIntervalTimer(Date initialExpiration, long intervalDuration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
+        DefaultIntervalTimer timer = new DefaultIntervalTimer(initialExpiration, intervalDuration, timerConfig);
+        timers.add(timer);
+        return timer;
+    }
     
     /**
      * @see TimerService#getAllTimers() 
@@ -128,11 +138,6 @@ public class DefaultTimerService implements TimerService {
 
     @Override
     public Timer createTimer(Date initialExpiration, long intervalDuration, Serializable info) throws IllegalArgumentException, IllegalStateException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Timer createIntervalTimer(Date initialExpiration, long intervalDuration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
