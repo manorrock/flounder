@@ -99,6 +99,16 @@ public class DefaultTimerService implements TimerService {
         timers.add(timer);
         return timer;
     }
+
+    /**
+     * @see TimerService#createSingleActionTimer(java.util.Date, javax.ejb.TimerConfig) 
+     */
+    @Override
+    public Timer createSingleActionTimer(Date expiration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
+        DefaultSingleActionTimer timer = new DefaultSingleActionTimer(expiration, timerConfig);
+        timers.add(timer);
+        return timer;
+    }
     
     /**
      * @see TimerService#getAllTimers() 
@@ -138,11 +148,6 @@ public class DefaultTimerService implements TimerService {
 
     @Override
     public Timer createTimer(Date expiration, Serializable info) throws IllegalArgumentException, IllegalStateException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Timer createSingleActionTimer(Date expiration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
