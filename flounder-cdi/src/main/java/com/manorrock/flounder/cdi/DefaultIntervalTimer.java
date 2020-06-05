@@ -56,6 +56,15 @@ class DefaultIntervalTimer implements Timer {
     public DefaultIntervalTimer(Date initialExpiration, long intervalDuration, TimerConfig timerConfig) {
     }
 
+    /**
+     * Constructor.
+     * 
+     * @param intervalDuration the interval duration.
+     * @param timerConfig the timer config.
+     */
+    public DefaultIntervalTimer(long intervalDuration, TimerConfig timerConfig) {
+    }
+
     @Override
     public void cancel() throws IllegalStateException, NoSuchObjectLocalException, EJBException {
         throw new UnsupportedOperationException("Not supported yet.");
