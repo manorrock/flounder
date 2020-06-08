@@ -51,6 +51,9 @@ public class DefaultTimer implements Timer {
     public DefaultTimer(Date expiration, Serializable info) {
     }
 
+    public DefaultTimer(long initialDuration, long intervalDuration, Serializable info) {
+    }
+
     @Override
     public void cancel() throws IllegalStateException, NoSuchObjectLocalException, EJBException {
         throw new UnsupportedOperationException("Not supported yet.");

@@ -82,7 +82,7 @@ public class DefaultTimerService implements TimerService {
     }
 
     /**
-     * @see TimerService#createIntervalTimer(long, long, javax.ejb.TimerConfig) 
+     * @see TimerService#createIntervalTimer(long, long, javax.ejb.TimerConfig)
      */
     @Override
     public Timer createIntervalTimer(long initialDuration, long intervalDuration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
@@ -113,6 +113,17 @@ public class DefaultTimerService implements TimerService {
     }
 
     /**
+     * @see TimerService#createSingleActionTimer(java.util.Date,
+     * javax.ejb.TimerConfig)
+     */
+    @Override
+    public Timer createSingleActionTimer(Date expiration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
+        DefaultSingleActionTimer timer = new DefaultSingleActionTimer(expiration, timerConfig);
+        timers.add(timer);
+        return timer;
+    }
+
+    /**
      * @see TimerService#createTimer(java.util.Date, java.io.Serializable)
      */
     @Override
@@ -123,12 +134,11 @@ public class DefaultTimerService implements TimerService {
     }
 
     /**
-     * @see TimerService#createSingleActionTimer(java.util.Date,
-     * javax.ejb.TimerConfig)
+     * @see TimerService#createTimer(long, long, java.io.Serializable) 
      */
     @Override
-    public Timer createSingleActionTimer(Date expiration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
-        DefaultSingleActionTimer timer = new DefaultSingleActionTimer(expiration, timerConfig);
+    public Timer createTimer(long initialDuration, long intervalDuration, Serializable info) throws IllegalArgumentException, IllegalStateException, EJBException {
+        DefaultTimer timer = new DefaultTimer(initialDuration, intervalDuration, info);
         timers.add(timer);
         return timer;
     }
@@ -156,11 +166,6 @@ public class DefaultTimerService implements TimerService {
 
     @Override
     public Timer createSingleActionTimer(long duration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public Timer createTimer(long initialDuration, long intervalDuration, Serializable info) throws IllegalArgumentException, IllegalStateException, EJBException {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
