@@ -158,6 +158,7 @@
         <module>flounder-ejb</module>
         <module>flounder-cdi</module>
         <module>test</module>
+        <module>servlet</module>
     </modules>
     <profiles>
         <profile>
