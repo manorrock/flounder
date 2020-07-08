@@ -6,9 +6,9 @@
         <artifactId>project</artifactId>
         <version>20.7.0-SNAPSHOT</version>
     </parent>
-    <artifactId>flounder-cdi</artifactId>
+    <artifactId>flounder-impl</artifactId>
     <packaging>jar</packaging>
-    <name>Manorrock Flounder CDI</name>
+    <name>Manorrock Flounder - Implementation</name>
     <dependencies>
         <dependency>
             <groupId>javax.enterprise</groupId>
@@ -18,7 +18,7 @@
         </dependency>
         <dependency>
             <groupId>com.manorrock.flounder</groupId>
-            <artifactId>flounder-ejb</artifactId>
+            <artifactId>flounder-ejb-api</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>

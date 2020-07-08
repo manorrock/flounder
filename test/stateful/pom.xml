@@ -13,7 +13,7 @@
     <artifactId>stateful</artifactId>
     <version>20.7.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>Manorrock Flounder Test - Stateful Test</name>
+    <name>Manorrock Flounder - Test - Stateful Test</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,7 +37,7 @@
         <!-- Manorrock Flounder -->
         <dependency>
             <groupId>com.manorrock.flounder</groupId>
-            <artifactId>flounder-cdi</artifactId>
+            <artifactId>flounder-impl</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
@@ -52,15 +52,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>

@@ -15,7 +15,7 @@
     <groupId>com.manorrock.flounder.test</groupId>
     <artifactId>project</artifactId>
     <packaging>pom</packaging>
-    <name>Manorrock Flounder Test Project</name>
+    <name>Manorrock Flounder - Test - Project</name>
     <modules>
         <module>singleton</module>
         <module>stateful</module>
