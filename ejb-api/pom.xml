@@ -105,8 +105,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.manorrock.herring</groupId>
-            <artifactId>herring</artifactId>
+            <groupId>cloud.piranha.naming</groupId>
+            <artifactId>piranha-naming-impl</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
