@@ -1,0 +1,40 @@
+name: nightly
+on:
+  schedule:
+  - cron: "0 12 * * *"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout sources
+      uses: actions/checkout@v1
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: Build with Maven
+      run: mvn -B -DskipTests=true -f pom.xml clean install
+    - name: Login to Docker Hub
+      uses: azure/docker-login@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build amd64 image
+      run: |
+        docker build -f src/main/docker/Dockerfile.amd64 -t manorrock/flounder:amd64-snapshot .
+        docker push manorrock/flounder:amd64-snapshot
+    - name: Build arm image
+      run: |
+        docker build -f src/main/docker/Dockerfile.arm -t manorrock/flounder:arm-snapshot .
+        docker push manorrock/flounder:arm-snapshot
+    - name: Push Docker manifest
+      run: |
+        export DOCKER_CLI_EXPERIMENTAL=enabled
+        docker manifest create manorrock/flounder:snapshot \
+          manorrock/flounder:amd64-snapshot \
+          manorrock/flounder:arm-snapshot
+        docker manifest annotate manorrock/flounder:snapshot \
+          manorrock/flounder:amd64-snapshot --os linux --arch amd64
+        docker manifest annotate manorrock/flounder:snapshot \
+          manorrock/flounder:arm-snapshot --os linux --arch arm
+        docker manifest push manorrock/flounder:snapshot
