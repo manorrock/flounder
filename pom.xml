@@ -146,7 +146,6 @@
     <modules>
         <module>ejb-api</module>
         <module>impl</module>
-        <module>servlet</module>
         <module>test</module>
     </modules>
     <profiles>
