@@ -118,7 +118,7 @@ public class DefaultTimerService implements TimerService {
      */
     @Override
     public Timer createSingleActionTimer(Date expiration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
-        DefaultSingleActionTimer timer = new DefaultSingleActionTimer(expiration, timerConfig);
+        DefaultTimer timer = new DefaultTimer(expiration, timerConfig);
         timers.add(timer);
         return timer;
     }

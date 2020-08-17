@@ -36,6 +36,7 @@ import javax.ejb.NoMoreTimeoutsException;
 import javax.ejb.NoSuchObjectLocalException;
 import javax.ejb.ScheduleExpression;
 import javax.ejb.Timer;
+import javax.ejb.TimerConfig;
 import javax.ejb.TimerHandle;
 
 /**
@@ -44,6 +45,16 @@ import javax.ejb.TimerHandle;
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public class DefaultTimer implements Timer {
+    
+    
+    /**
+     * Constructor.
+     * 
+     * @param expiration the expiration date.
+     * @param timerConfig the timer config.
+     */
+    public DefaultTimer(Date expiration, TimerConfig timerConfig) {
+    }
 
     public DefaultTimer(Date initialExpiration, long intervalDuration, Serializable info) {
     }
