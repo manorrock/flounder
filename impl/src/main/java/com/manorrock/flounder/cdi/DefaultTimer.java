@@ -29,15 +29,15 @@
  */
 package com.manorrock.flounder.cdi;
 
+import jakarta.ejb.EJBException;
+import jakarta.ejb.NoMoreTimeoutsException;
+import jakarta.ejb.NoSuchObjectLocalException;
+import jakarta.ejb.ScheduleExpression;
+import jakarta.ejb.Timer;
+import jakarta.ejb.TimerConfig;
+import jakarta.ejb.TimerHandle;
 import java.io.Serializable;
 import java.util.Date;
-import javax.ejb.EJBException;
-import javax.ejb.NoMoreTimeoutsException;
-import javax.ejb.NoSuchObjectLocalException;
-import javax.ejb.ScheduleExpression;
-import javax.ejb.Timer;
-import javax.ejb.TimerConfig;
-import javax.ejb.TimerHandle;
 
 /**
  * The default Timer.

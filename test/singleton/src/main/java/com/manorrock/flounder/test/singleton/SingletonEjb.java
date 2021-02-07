@@ -29,7 +29,7 @@
  */
 package com.manorrock.flounder.test.singleton;
 
-import javax.ejb.Singleton;
+import jakarta.ejb.Singleton;
 
 /**
  * A singleton EJB.

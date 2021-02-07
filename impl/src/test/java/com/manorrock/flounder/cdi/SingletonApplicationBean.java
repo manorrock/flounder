@@ -29,8 +29,8 @@
  */
 package com.manorrock.flounder.cdi;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 
 /**
  * A singleton EJB.

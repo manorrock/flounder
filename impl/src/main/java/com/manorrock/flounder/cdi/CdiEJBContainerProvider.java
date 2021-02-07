@@ -29,11 +29,11 @@
  */
 package com.manorrock.flounder.cdi;
 
+import jakarta.ejb.EJBException;
+import jakarta.ejb.embeddable.EJBContainer;
+import jakarta.ejb.spi.EJBContainerProvider;
+import jakarta.enterprise.inject.spi.CDI;
 import java.util.Map;
-import javax.ejb.EJBException;
-import javax.ejb.embeddable.EJBContainer;
-import javax.ejb.spi.EJBContainerProvider;
-import javax.enterprise.inject.spi.CDI;
 
 /**
  * The CDI EJB container provider.

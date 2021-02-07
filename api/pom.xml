@@ -9,5 +9,5 @@
     </parent>
     <artifactId>flounder-api</artifactId>
     <packaging>jar</packaging>
-    <name>Manorrock Flouder - API</name>
+    <name>Manorrock Flounder - API</name>
 </project>

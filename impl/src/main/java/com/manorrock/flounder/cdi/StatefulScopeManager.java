@@ -29,11 +29,11 @@
  */
 package com.manorrock.flounder.cdi;
 
+import jakarta.ejb.Singleton;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.context.spi.Contextual;
+import jakarta.enterprise.context.spi.CreationalContext;
 import java.util.concurrent.ConcurrentHashMap;
-import javax.ejb.Singleton;
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.spi.Contextual;
-import javax.enterprise.context.spi.CreationalContext;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 

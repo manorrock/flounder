@@ -29,7 +29,7 @@
  */
 package com.manorrock.flounder.cdi;
 
-import javax.ejb.Singleton;
+import jakarta.inject.Singleton;
 
 /**
  * A singleton EJB.

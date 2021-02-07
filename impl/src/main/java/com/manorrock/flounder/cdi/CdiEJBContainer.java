@@ -29,8 +29,8 @@
  */
 package com.manorrock.flounder.cdi;
 
-import javax.ejb.embeddable.EJBContainer;
-import javax.enterprise.context.ApplicationScoped;
+import jakarta.ejb.embeddable.EJBContainer;
+import jakarta.enterprise.context.ApplicationScoped;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;

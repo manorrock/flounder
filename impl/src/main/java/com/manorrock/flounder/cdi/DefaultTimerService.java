@@ -29,16 +29,16 @@
  */
 package com.manorrock.flounder.cdi;
 
+import jakarta.ejb.EJBException;
+import jakarta.ejb.ScheduleExpression;
+import jakarta.ejb.Timer;
+import jakarta.ejb.TimerConfig;
+import jakarta.ejb.TimerService;
+import jakarta.enterprise.context.ApplicationScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import javax.ejb.EJBException;
-import javax.ejb.ScheduleExpression;
-import javax.ejb.Timer;
-import javax.ejb.TimerConfig;
-import javax.ejb.TimerService;
-import javax.enterprise.context.ApplicationScoped;
 
 /**
  * A CDI implementation of TimerService.
@@ -60,10 +60,6 @@ public class DefaultTimerService implements TimerService {
         timers = new ArrayList<>();
     }
 
-    /**
-     * @see TimerService#createCalendarTimer(javax.ejb.ScheduleExpression,
-     * javax.ejb.TimerConfig)
-     */
     @Override
     public Timer createCalendarTimer(ScheduleExpression schedule, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
         DefaultCalendarTimer timer = new DefaultCalendarTimer(schedule, timerConfig);
@@ -71,9 +67,6 @@ public class DefaultTimerService implements TimerService {
         return timer;
     }
 
-    /**
-     * @see TimerService#createCalendarTimer(javax.ejb.ScheduleExpression)
-     */
     @Override
     public Timer createCalendarTimer(ScheduleExpression schedule) throws IllegalArgumentException, IllegalStateException, EJBException {
         DefaultCalendarTimer timer = new DefaultCalendarTimer(schedule, null);
@@ -81,9 +74,6 @@ public class DefaultTimerService implements TimerService {
         return timer;
     }
 
-    /**
-     * @see TimerService#createIntervalTimer(long, long, javax.ejb.TimerConfig)
-     */
     @Override
     public Timer createIntervalTimer(long initialDuration, long intervalDuration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
         DefaultIntervalTimer timer = new DefaultIntervalTimer(intervalDuration, timerConfig);
@@ -91,10 +81,6 @@ public class DefaultTimerService implements TimerService {
         return timer;
     }
 
-    /**
-     * @see TimerService#createIntervalTimer(java.util.Date, long,
-     * javax.ejb.TimerConfig)
-     */
     @Override
     public Timer createIntervalTimer(Date initialExpiration, long intervalDuration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
         DefaultIntervalTimer timer = new DefaultIntervalTimer(initialExpiration, intervalDuration, timerConfig);
@@ -102,9 +88,6 @@ public class DefaultTimerService implements TimerService {
         return timer;
     }
 
-    /**
-     * @see TimerService#createTimer(java.util.Date, long, java.io.Serializable)
-     */
     @Override
     public Timer createTimer(Date initialExpiration, long intervalDuration, Serializable info) throws IllegalArgumentException, IllegalStateException, EJBException {
         DefaultTimer timer = new DefaultTimer(initialExpiration, intervalDuration, info);
@@ -112,10 +95,6 @@ public class DefaultTimerService implements TimerService {
         return timer;
     }
 
-    /**
-     * @see TimerService#createSingleActionTimer(java.util.Date,
-     * javax.ejb.TimerConfig)
-     */
     @Override
     public Timer createSingleActionTimer(Date expiration, TimerConfig timerConfig) throws IllegalArgumentException, IllegalStateException, EJBException {
         DefaultTimer timer = new DefaultTimer(expiration, timerConfig);
@@ -123,9 +102,6 @@ public class DefaultTimerService implements TimerService {
         return timer;
     }
 
-    /**
-     * @see TimerService#createTimer(java.util.Date, java.io.Serializable)
-     */
     @Override
     public Timer createTimer(Date expiration, Serializable info) throws IllegalArgumentException, IllegalStateException, EJBException {
         DefaultTimer timer = new DefaultTimer(expiration, info);
@@ -133,9 +109,6 @@ public class DefaultTimerService implements TimerService {
         return timer;
     }
 
-    /**
-     * @see TimerService#createTimer(long, long, java.io.Serializable) 
-     */
     @Override
     public Timer createTimer(long initialDuration, long intervalDuration, Serializable info) throws IllegalArgumentException, IllegalStateException, EJBException {
         DefaultTimer timer = new DefaultTimer(initialDuration, intervalDuration, info);
@@ -143,17 +116,11 @@ public class DefaultTimerService implements TimerService {
         return timer;
     }
 
-    /**
-     * @see TimerService#getAllTimers()
-     */
     @Override
     public Collection<Timer> getAllTimers() throws IllegalStateException, EJBException {
         return timers;
     }
 
-    /**
-     * @see TimerService#getTimers()
-     */
     @Override
     public Collection<Timer> getTimers() throws IllegalStateException, EJBException {
         return timers;

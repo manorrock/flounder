@@ -29,10 +29,10 @@
  */
 package com.manorrock.flounder.cdi;
 
-import javax.ejb.TimerService;
-import javax.enterprise.inject.se.SeContainer;
-import javax.enterprise.inject.se.SeContainerInitializer;
-import javax.enterprise.inject.spi.CDI;
+import jakarta.ejb.TimerService;
+import jakarta.enterprise.inject.se.SeContainer;
+import jakarta.enterprise.inject.se.SeContainerInitializer;
+import jakarta.enterprise.inject.spi.CDI;
 import org.junit.After;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Before;

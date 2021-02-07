@@ -13,43 +13,7 @@
     <artifactId>singleton</artifactId>
     <version>20.8.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>Manorrock Flounder - Test - Singleton Test</name>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-    
-    <dependencies>
-        <!-- Eclipse Mojarra -->
-        <dependency>
-            <groupId>org.glassfish</groupId>
-            <artifactId>jakarta.faces</artifactId>
-            <version>2.3.14</version>
-            <scope>compile</scope>
-        </dependency>
-         <!-- Jakarta EJB API -->
-        <dependency>
-            <groupId>jakarta.ejb</groupId>
-            <artifactId>jakarta.ejb-api</artifactId>
-            <version>3.2.6</version>
-            <scope>compile</scope>
-        </dependency>
-        <!-- Manorrock Flounder -->
-        <dependency>
-            <groupId>com.manorrock.flounder</groupId>
-            <artifactId>flounder-impl</artifactId>
-            <version>${project.version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <!-- Weld -->
-        <dependency>
-            <groupId>org.jboss.weld.servlet</groupId>
-            <artifactId>weld-servlet-shaded</artifactId>
-            <version>3.1.3.Final</version>
-            <scope>compile</scope>
-        </dependency>
-    </dependencies>
-
+    <name>Manorrock Flounder - Test - Singleton Test</name>    
     <build>
         <plugins>
             <plugin>
@@ -62,5 +26,33 @@
             </plugin>
         </plugins>
     </build>
-
+    <dependencies>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>jakarta.faces</artifactId>
+            <version>3.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.ejb</groupId>
+            <artifactId>jakarta.ejb-api</artifactId>
+            <version>4.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.manorrock.flounder</groupId>
+            <artifactId>flounder-impl</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet-shaded</artifactId>
+            <version>4.0.0.Final</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 </project>
