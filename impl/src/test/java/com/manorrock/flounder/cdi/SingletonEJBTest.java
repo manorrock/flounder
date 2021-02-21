@@ -37,7 +37,6 @@ import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -77,7 +76,6 @@ public class SingletonEJBTest {
      * @throws Exception when a serious error occurs.
      */
     @Test
-    @Ignore
     public void testSingletonEJB() throws Exception {
         System.setProperty("java.naming.factory.initial",
                 "cloud.piranha.naming.impl.DefaultInitialContextFactory");
