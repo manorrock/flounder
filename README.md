@@ -6,8 +6,8 @@ some useful add-on modules.
 
 See the list below for what is available.
 
-1. [Flounder EJB container](flounder-cdi/README.md)
-2. [Flounder EJB API](flounder-ejb/README.md)
+1. [Flounder EJB container](impl/README.md)
+2. [Flounder EJB API](ejb-api/README.md)
 
 ## How do I contribute?
 
