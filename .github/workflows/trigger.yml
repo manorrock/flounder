@@ -5,7 +5,7 @@ on:
       branch:
         description: 'Branch to release from'
         required: true
-        default: 'master'
+        default: 'current'
       version:
         description: 'Release version'
         required: true
@@ -16,11 +16,12 @@ jobs:
     - name: Checkout sources
       uses: actions/checkout@v2
       with:
-        token: ${{ secrets.GIT_PASSWORD }}
+        token: ${{ secrets.GIT_TOKEN }}
     - name: Release from given branch with given version
       run: |
         git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
         BRANCH=${{ github.event.inputs.branch }}
+        TAG=${GITHUB_REF}
         VERSION=${{ github.event.inputs.version }}
         echo "Releasing $VERSION from $BRANCH branch"
         git checkout $BRANCH
@@ -28,7 +29,7 @@ jobs:
         mvn -B versions:set versions:commit -DnewVersion=$VERSION
         git config --global user.email "noreply@manorrock.com"
         git config --global user.name "Automated release"
-        git commit -a -m "Releasing version $VERSION"
+        git commit -a -m "Releasing version $VERSION from $BRANCH branch"
         git tag v$VERSION -f
         git push origin v$VERSION -f
         git checkout $BRANCH
