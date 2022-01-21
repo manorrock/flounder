@@ -78,7 +78,7 @@ public class SingletonEJBTest {
     @Test
     public void testSingletonEJB() throws Exception {
         System.setProperty("java.naming.factory.initial",
-                "cloud.piranha.naming.impl.DefaultInitialContextFactory");
+                "com.manorrock.herring.DefaultInitialContextFactory");
         InitialContext context = new InitialContext();
         SingletonEJB ejb = CDI.current().select(SingletonEJB.class).get();
         assertNotNull(ejb);
@@ -94,7 +94,7 @@ public class SingletonEJBTest {
     @Test
     public void testInjectSingletonEJB() throws Exception {
         System.setProperty("java.naming.factory.initial",
-                "cloud.piranha.naming.impl.DefaultInitialContextFactory");
+                "com.manorrock.herring.DefaultInitialContextFactory");
         SingletonApplicationBean applicationBean = CDI.current()
                 .select(SingletonApplicationBean.class).get();
         assertNotNull(applicationBean);

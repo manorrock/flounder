@@ -77,7 +77,7 @@ public class DefaultTimerServiceTest {
     @Test
     public void testGetAllTimers() throws Exception {
         System.setProperty("java.naming.factory.initial",
-                "cloud.piranha.naming.impl.DefaultInitialContextFactory");
+                "com.manorrock.herring.DefaultInitialContextFactory");
         TimerService timerService = CDI.current().select(TimerService.class).get();
         assertNotNull(timerService.getAllTimers());
     }
@@ -90,7 +90,7 @@ public class DefaultTimerServiceTest {
     @Test
     public void testGetTimers() throws Exception {
         System.setProperty("java.naming.factory.initial",
-                "cloud.piranha.naming.impl.DefaultInitialContextFactory");
+                "com.manorrock.herring.DefaultInitialContextFactory");
         TimerService timerService = CDI.current().select(TimerService.class).get();
         assertNotNull(timerService.getTimers());
     }
