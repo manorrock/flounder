@@ -4,11 +4,6 @@
 The Manorrock Flounder Project delivers you with a slim EJB container and
 some useful add-on modules.
 
-See the list below for what is available.
-
-1. [Flounder EJB container](impl/README.md)
-2. [Flounder EJB API](ejb-api/README.md)
-
 ## How do I contribute?
 
 See [Contributing](CONTRIBUTING.md)
