@@ -1,5 +1,6 @@
-
 # Manorrock Flounder Project
+
+[![build](https://github.com/manorrock/flounder/actions/workflows/build.yml/badge.svg)](https://github.com/manorrock/flounder/actions/workflows/build.yml)
 
 The Manorrock Flounder Project delivers you with a slim EJB container and
 some useful add-on modules.
