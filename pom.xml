@@ -176,7 +176,6 @@
         <module>ejb-api</module>
         <module>impl</module>
         <module>test</module>
-        <module>api</module>
     </modules>
     <profiles>
         <profile>
