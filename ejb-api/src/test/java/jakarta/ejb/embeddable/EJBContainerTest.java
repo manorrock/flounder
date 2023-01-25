@@ -48,6 +48,7 @@ public class EJBContainerTest {
     public void testClose() {
         EJBContainer container = new TestEJBContainer();
         container.close();
+        assertNull(container.getContext());
     }
 
     /**
