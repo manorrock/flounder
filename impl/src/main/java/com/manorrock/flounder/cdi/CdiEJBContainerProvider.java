@@ -51,6 +51,6 @@ public class CdiEJBContainerProvider implements EJBContainerProvider {
      */
     @Override
     public EJBContainer createEJBContainer(Map<?, ?> properties) throws EJBException {
-        return (EJBContainer) CDI.current().select(CdiEJBContainer.class).get();
+        return CDI.current().select(CdiEJBContainer.class).get();
     }
 }
