@@ -107,6 +107,7 @@ public class StatelessScopeContext implements Context {
                 InitialContext context = new InitialContext();
                 beanManager = (BeanManager) context.lookup("java:comp/BeanManager");
             } catch (NamingException ne) {
+                // swallowing up on purpose.
             }
         }
         if (beanManager != null) {

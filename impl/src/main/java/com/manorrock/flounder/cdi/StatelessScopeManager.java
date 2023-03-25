@@ -73,6 +73,7 @@ public class StatelessScopeManager {
                 initialContext.bind("java:module/" + singleton.name(), bean);
             }
         } catch (NamingException ne) {
+            // swallowing it up on purpose
         }
         return bean;
     }
