@@ -123,7 +123,7 @@ public class DefaultTimerService implements TimerService {
 
     @Override
     public Collection<Timer> getTimers() throws IllegalStateException, EJBException {
-        return timers;
+        return getAllTimers();
     }
 
     @Override

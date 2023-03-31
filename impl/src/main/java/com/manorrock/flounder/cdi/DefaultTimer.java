@@ -46,6 +46,11 @@ import java.util.Date;
  */
 public class DefaultTimer implements Timer {
     
+
+    /**
+     * Stores the not supported yet string constant.
+     */
+    private static final String NOT_SUPPORTED_YET = "Not supported yet.";
     
     /**
      * Constructor.
@@ -54,55 +59,59 @@ public class DefaultTimer implements Timer {
      * @param timerConfig the timer config.
      */
     public DefaultTimer(Date expiration, TimerConfig timerConfig) {
+        // ignoring everything for now.
     }
 
     public DefaultTimer(Date initialExpiration, long intervalDuration, Serializable info) {
+        // ignoring everything for now.
     }
 
     public DefaultTimer(Date expiration, Serializable info) {
+        // ignoring everything for now.
     }
 
     public DefaultTimer(long initialDuration, long intervalDuration, Serializable info) {
+        // ignoring everything for now.
     }
 
     @Override
     public void cancel() throws IllegalStateException, NoSuchObjectLocalException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
     @Override
     public long getTimeRemaining() throws IllegalStateException, NoSuchObjectLocalException, NoMoreTimeoutsException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
     @Override
     public Date getNextTimeout() throws IllegalStateException, NoSuchObjectLocalException, NoMoreTimeoutsException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
     @Override
     public ScheduleExpression getSchedule() throws IllegalStateException, NoSuchObjectLocalException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
     @Override
     public boolean isPersistent() throws IllegalStateException, NoSuchObjectLocalException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
     @Override
     public boolean isCalendarTimer() throws IllegalStateException, NoSuchObjectLocalException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
     @Override
     public Serializable getInfo() throws IllegalStateException, NoSuchObjectLocalException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
     @Override
     public TimerHandle getHandle() throws IllegalStateException, NoSuchObjectLocalException, EJBException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
     
 }
