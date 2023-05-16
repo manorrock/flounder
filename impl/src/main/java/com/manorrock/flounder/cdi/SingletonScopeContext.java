@@ -111,7 +111,7 @@ public class SingletonScopeContext implements Context {
         }
         if (beanManager != null) {
             Set<Bean<?>> beans = beanManager.getBeans(clazz);
-            Bean resolvedBean = beanManager.resolve(beans);
+            Bean<?> resolvedBean = beanManager.resolve(beans);
             result = (SingletonScopeManager) beanManager.getReference(
                     resolvedBean, clazz,
                     beanManager.createCreationalContext(resolvedBean));
