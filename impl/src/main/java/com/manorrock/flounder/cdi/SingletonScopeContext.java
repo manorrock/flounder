@@ -101,6 +101,7 @@ public class SingletonScopeContext implements Context {
         try {
             beanManager = CDI.current().getBeanManager();
         } catch (Throwable t) {
+            // silently swallow
         }
         if (beanManager == null) {
             try {
