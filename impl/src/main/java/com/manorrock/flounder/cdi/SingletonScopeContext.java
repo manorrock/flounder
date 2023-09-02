@@ -108,6 +108,7 @@ public class SingletonScopeContext implements Context {
                 InitialContext context = new InitialContext();
                 beanManager = (BeanManager) context.lookup("java:comp/BeanManager");
             } catch (NamingException ne) {
+                // silently swallow
             }
         }
         if (beanManager != null) {
