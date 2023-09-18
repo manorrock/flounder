@@ -73,6 +73,7 @@ public class SingletonScopeManager {
                 initialContext.bind("java:module/" + singleton.name(), bean);
             }
         } catch (NamingException ne) {
+            // swallowed up intentionally
         }
         return bean;
     }
