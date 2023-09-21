@@ -101,6 +101,7 @@ public class StatefulScopeContext implements Context {
         try {
             beanManager = CDI.current().getBeanManager();
         } catch (Throwable t) {
+            // swallowed intentionally
         }
         if (beanManager == null) {
             try {
