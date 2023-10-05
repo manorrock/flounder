@@ -2,7 +2,6 @@
 
 [![build](https://github.com/manorrock/flounder/actions/workflows/build.yml/badge.svg)](https://github.com/manorrock/flounder/actions/workflows/build.yml)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=manorrock_flounder&metric=bugs)](https://sonarcloud.io/summary/new_code?id=manorrock_flounder)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=manorrock_flounder&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=manorrock_flounder)
 
 The Manorrock Flounder Project delivers you with a slim EJB container and
 some useful add-on modules.
