@@ -45,7 +45,7 @@
         <dependency>
             <groupId>org.jboss.weld.se</groupId>
             <artifactId>weld-se-shaded</artifactId>
-            <version>4.0.3.Final</version>
+            <version>${weld-se-shaded.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

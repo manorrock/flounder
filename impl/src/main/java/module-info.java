@@ -40,6 +40,6 @@ module com.manorrock.flounder.impl {
     requires jakarta.ejb;
     requires jakarta.el;
     requires jakarta.inject;
-    requires jakarta.interceptor.api;
+    requires jakarta.interceptor;
     requires static java.naming;
 }
