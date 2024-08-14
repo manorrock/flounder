@@ -202,7 +202,6 @@
     <modules>
         <module>impl</module>
         <module>test</module>
-        <module>tck</module>
     </modules>
     <profiles>
         <profile>
